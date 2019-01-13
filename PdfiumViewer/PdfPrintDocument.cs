@@ -187,19 +187,14 @@ namespace PdfiumViewer
             left += (width - scaledWidth) / 2;
             top += (height - scaledHeight) / 2;
 
-            _document.Render(
-                page,
-                e.Graphics,
+            Image image = _document.Render(page,
+                AdjustDpi(e.Graphics.DpiX, scaledWidth),
+                AdjustDpi(e.Graphics.DpiY, scaledHeight),
                 e.Graphics.DpiX,
                 e.Graphics.DpiY,
-                new Rectangle(
-                    AdjustDpi(e.Graphics.DpiX, left),
-                    AdjustDpi(e.Graphics.DpiY, top),
-                    AdjustDpi(e.Graphics.DpiX, scaledWidth),
-                    AdjustDpi(e.Graphics.DpiY, scaledHeight)
-                ),
-                PdfRenderFlags.ForPrinting | PdfRenderFlags.Annotations
-            );
+                PdfRotation.Rotate0, PdfRenderFlags.ForPrinting | PdfRenderFlags.Annotations);
+
+            e.Graphics.DrawImageUnscaled(image, e.PageBounds.Location);
         }
 
         private static void Swap(ref double a, ref double b)
