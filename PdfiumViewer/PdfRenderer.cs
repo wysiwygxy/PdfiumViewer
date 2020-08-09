@@ -487,6 +487,19 @@ namespace PdfiumViewer
             Invalidate();
         }
 
+        public void SelectCurrentPage()
+        {
+            _textSelectionState = new TextSelectionState()
+            {
+                StartPage = Page,
+                StartIndex = 0,
+                EndPage = Page,
+                EndIndex = Document.CountCharacters(Page) - 1
+            };
+
+            Invalidate();
+        }
+
         public void CopySelection()
         {
             var text = SelectedText;
