@@ -65,6 +65,7 @@ namespace PdfiumViewer
             _zoom = value;
 
             OnZoomChanged(EventArgs.Empty);
+            OnDisplayRectangleChanged(EventArgs.Empty);
 
             Invalidate();
         }
