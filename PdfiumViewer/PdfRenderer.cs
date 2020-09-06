@@ -525,7 +525,7 @@ namespace PdfiumViewer
             ReloadDocument();
         }
 
-        private void ReloadDocument()
+        public void ReloadDocument()
         {
             _height = 0;
             _maxWidth = 0;
