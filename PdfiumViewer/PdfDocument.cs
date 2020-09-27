@@ -603,6 +603,16 @@ namespace PdfiumViewer
         }
 
         /// <summary>
+        /// Get the current rotation of the page.
+        /// </summary>
+        /// <param name="page"></param>
+        /// <returns></returns>
+        public PdfRotation GetPageRotation(int page)
+        {
+            return _file.GetPageRotation(page);
+        }
+
+        /// <summary>
         /// Rotate the page.
         /// </summary>
         /// <param name="page">The page to rotate.</param>

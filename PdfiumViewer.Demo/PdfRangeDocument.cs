@@ -233,6 +233,11 @@ namespace PdfiumViewer.Demo
             _document.DeletePage(TranslatePage(pageNumber));
         }
 
+        public PdfRotation GetPageRotation(int page)
+        {
+            return _document.GetPageRotation(TranslatePage(page));
+        }
+
         public void RotatePage(int pageNumber, PdfRotation rotation)
         {
             _document.RotatePage(TranslatePage(pageNumber), rotation);
