@@ -64,7 +64,6 @@ namespace PdfiumViewer
 
             if (renderFormFill)
             {
-                flags &= ~NativeMethods.FPDF.ANNOT;
                 NativeMethods.FPDF_FFLDraw(_form, bitmapHandle, pageData.Page, boundsOriginX, boundsOriginY, boundsWidth, boundsHeight, rotate, flags);
             }
 
