@@ -480,6 +480,25 @@ namespace PdfiumViewer
             return FPDFEncoding.GetString(result, 0, (count - 1) * 2);
         }
 
+        public IList<PdfCharacterInformation> GetCharacterInformation(int page)
+        {
+            using (var pageData = new PageData(_document, _form, page))
+            {
+                var result = new List<PdfCharacterInformation>();
+                int charCount = NativeMethods.FPDFText_CountChars(pageData.TextPage);
+                var allChars = GetPdfText(pageData, new PdfTextSpan(page, 0, charCount)).ToCharArray();
+
+                for (int i = 0; i < charCount; i++)
+                {
+                    var bounds = GetBounds(pageData.TextPage, i);
+                    double fontSize = NativeMethods.FPDFText_GetFontSize(pageData.TextPage, i);
+                    result.Add(new PdfCharacterInformation(page, i, allChars[i], fontSize, bounds));
+                }
+
+                return result;
+            }
+        }
+
         public int GetCharIndexAtPos(PdfPoint location, double xTolerance, double yTolerance)
         {
             return NativeMethods.FPDFText_GetCharIndexAtPos(

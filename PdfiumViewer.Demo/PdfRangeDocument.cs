@@ -292,6 +292,10 @@ namespace PdfiumViewer.Demo
         {
             return _document.RectangleFromPdf(TranslatePage(page), rect);
         }
+        public IList<PdfCharacterInformation> GetCharacterInformation(int page)
+        {
+            return _document.GetCharacterInformation(page);
+        }
 
         public int GetCharacterIndexAtPosition(PdfPoint location, double xTolerance, double yTolerance)
         {
