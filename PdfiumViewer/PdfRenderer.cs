@@ -16,7 +16,6 @@ namespace PdfiumViewer
         private static readonly Padding PageMargin = new Padding(4);
         private static readonly SolidBrush _textSelectionBrush = new SolidBrush(Color.FromArgb(90, Color.DodgerBlue));
 
-        private int _height;
         private int _maxWidth;
         private int _maxHeight;
         private double _documentScaleFactor;
@@ -527,7 +526,6 @@ namespace PdfiumViewer
 
         public void ReloadDocument()
         {
-            _height = 0;
             _maxWidth = 0;
             _maxHeight = 0;
             _textSelectionState = null;
@@ -535,7 +533,6 @@ namespace PdfiumViewer
             foreach (var size in Document.PageSizes)
             {
                 var translated = TranslateSize(size);
-                _height += (int)translated.Height;
                 _maxWidth = Math.Max((int)translated.Width, _maxWidth);
                 _maxHeight = Math.Max((int)translated.Height, _maxHeight);
             }
@@ -837,7 +834,14 @@ namespace PdfiumViewer
         /// <returns>The document bounds.</returns>
         protected override Rectangle GetDocumentBounds()
         {
-            int height = (int)(_height * _scaleFactor + (ShadeBorder.Size.Vertical + PageMargin.Vertical) * Document.PageCount);
+            int scaledHeight = 0;
+            for (int page = 0; page < Document.PageSizes.Count; page++)
+            {
+                var size = TranslateSize(Document.PageSizes[page]);
+                scaledHeight += (int)(size.Height * _scaleFactor);
+            }
+
+            int height = (int)(scaledHeight + (ShadeBorder.Size.Vertical + PageMargin.Vertical) * Document.PageCount);
             int width = (int)(_maxWidth * _scaleFactor + ShadeBorder.Size.Horizontal + PageMargin.Horizontal);
             
             var center = new Point(
