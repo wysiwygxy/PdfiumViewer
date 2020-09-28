@@ -1,53 +1,37 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
   <PropertyGroup>
-    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net20</TargetFramework>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <TargetFrameworks>net45;netcoreapp3.1</TargetFrameworks>
+    <UseWindowsForms>true</UseWindowsForms>
     <AssemblyTitle>PdfViewer.Demo</AssemblyTitle>
     <Company>Pieter van Ginkel</Company>
     <Product>PdfViewer.Demo</Product>
     <Copyright>Pieter van Ginkel © 2012-2015</Copyright>
-    <AssemblyVersion>2.11.0.0</AssemblyVersion>
-    <FileVersion>2.11.0.0</FileVersion>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Version>2.11.0.0</Version>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="PDFium.x64.v8-xfa" Version="4194.0.0" />
     <PackageReference Include="PDFium.x86.v8-xfa" Version="4194.0.0" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="System.Deployment" />
-    <Reference Include="System.Windows.Forms" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Update="ExportBitmapsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Update="ExportBitmapsForm.cs" />
     <Compile Update="ExportBitmapsForm.Designer.cs">
       <DependentUpon>ExportBitmapsForm.cs</DependentUpon>
     </Compile>
-    <Compile Update="MainForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Update="MainForm.cs" />
     <Compile Update="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Update="PageRangeForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Update="PageRangeForm.cs" />
     <Compile Update="PageRangeForm.Designer.cs">
       <DependentUpon>PageRangeForm.cs</DependentUpon>
     </Compile>
-    <Compile Update="PrintMultiplePagesForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Update="PrintMultiplePagesForm.cs" />
     <Compile Update="PrintMultiplePagesForm.Designer.cs">
       <DependentUpon>PrintMultiplePagesForm.cs</DependentUpon>
     </Compile>
-    <Compile Update="SearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Update="SearchForm.cs" />
     <Compile Update="SearchForm.Designer.cs">
       <DependentUpon>SearchForm.cs</DependentUpon>
     </Compile>
