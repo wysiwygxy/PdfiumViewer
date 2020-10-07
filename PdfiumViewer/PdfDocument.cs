@@ -617,6 +617,7 @@ namespace PdfiumViewer
         {
             _file.DeletePage(page);
             _pageSizes.RemoveAt(page);
+            PageSizes = new ReadOnlyCollection<SizeF>(_pageSizes);
         }
 
         /// <summary>
@@ -638,6 +639,7 @@ namespace PdfiumViewer
         {
             _file.RotatePage(page, rotation);
             _pageSizes[page] = _file.GetPDFDocInfo(page);
+            PageSizes = new ReadOnlyCollection<SizeF>(_pageSizes);
         }
 
         /// <summary>

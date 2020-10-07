@@ -1,15 +1,21 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30503.244
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PdfiumViewer", "PdfiumViewer\PdfiumViewer.csproj", "{438914B6-5D1C-482C-B942-5C0E057EEF6F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PdfiumViewer", "PdfiumViewer\PdfiumViewer.csproj", "{438914B6-5D1C-482C-B942-5C0E057EEF6F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PdfiumViewer.Demo", "PdfiumViewer.Demo\PdfiumViewer.Demo.csproj", "{ADD131F6-17EB-4E42-932F-74CBE6DBEEB3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PdfiumViewer.Demo", "PdfiumViewer.Demo\PdfiumViewer.Demo.csproj", "{ADD131F6-17EB-4E42-932F-74CBE6DBEEB3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PdfiumViewer.WPFDemo", "PdfiumViewer.WPFDemo\PdfiumViewer.WPFDemo.csproj", "{CBD6C52A-F0F4-48B8-957B-8CAD54ACD837}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PdfiumViewer.WPFDemo", "PdfiumViewer.WPFDemo\PdfiumViewer.WPFDemo.csproj", "{CBD6C52A-F0F4-48B8-957B-8CAD54ACD837}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PdfiumViewer.Test", "PdfiumViewer.Test\PdfiumViewer.Test.csproj", "{61083268-3F14-47B7-8753-AF69BB3D0891}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PdfiumViewer.Test", "PdfiumViewer.Test\PdfiumViewer.Test.csproj", "{61083268-3F14-47B7-8753-AF69BB3D0891}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0A83C280-4A34-43B7-877D-49A046C9B3E7}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE = LICENSE
+		README.markdown = README.markdown
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -71,5 +77,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {37CC34F7-35EE-46B1-BAE9-7BA3F68E836F}
 	EndGlobalSection
 EndGlobal

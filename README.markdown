@@ -1,18 +1,15 @@
 # PdfiumViewer
 
-Apache 2.0 License.
+[![License](https://img.shields.io/github/license/Bluegrams/PdfiumViewer.svg)](https://github.com/Bluegrams/PdfiumViewer/blob/master/LICENSE)
+[![NuGet](https://img.shields.io/nuget/v/PdfiumViewer.Updated.svg)](http://nuget.org/packages/PdfiumViewer.Updated)
 
-[Download from NuGet](http://nuget.org/packages/PdfiumViewer).
+## Updated
 
-## Archived
+This is an updated fork of the archived **[pvginkel/PdfiumViewer](https://github.com/pvginkel/PdfiumViewer)** project. It is available as `PdfiumViewer.Updated` via nuget and includes the following changes/ updates:
 
-I regret to announce I'm archiving this project. I haven't been able to spend any real time on this for a long time now, and must face the fact I'm not in a position to properly support this project.
-
-I understand that even though I haven't been able to spend time, other developers have stepped in helping out answering issues, and archiving this project will make it more difficult finding help using PdfiumViewer. I'm sorry for this inconvenience.
-
-Together with archiving this project, I will also be archiving the [PdfiumBuild](https://github.com/pvginkel/PdfiumBuild) project. I'll make a number of successful builds available in the PdfiumBuild repository for anyone who needs them, but the build server will be shutdown as part of archiving these projects.
-
-I've had a great time developing this project and helping you out using this project, and I'm sad I have to now close this down. I hope PdfiumViewer has been of value to you. The source code and NuGet packages won't be going anywhere, so keep using them if they're of value to you.
+- Merged all relevant [open pull requests](https://github.com/pvginkel/PdfiumViewer/pulls) of the original repo
+- Updated to newer PDFium binaries from https://github.com/bblanchon/pdfium-binaries
+- Added **.NET Core 3.1** as new target
 
 ## Introduction
 
