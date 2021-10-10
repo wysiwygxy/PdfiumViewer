@@ -577,7 +577,16 @@ namespace PdfiumViewer
             return CreatePrintDocument(PdfPrintSettings.DefaultPrinterSettings);
         }
 
-       
+        /// <summary>
+        /// Creates a <see cref="PrintDocument"/> for the PDF document.
+        /// </summary>
+        /// <param name="printMode">Specifies the mode for printing. The default
+        /// value for this parameter is CutMargin.</param>
+        /// <returns></returns>
+        public PrintDocument CreatePrintDocument(PdfPrintMode printMode)
+        {
+            return CreatePrintDocument(new PdfPrintSettings(printMode));
+        }
 
         /// <summary>
         /// Creates a <see cref="PrintDocument"/> for the PDF document.
