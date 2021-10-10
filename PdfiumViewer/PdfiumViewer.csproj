@@ -17,6 +17,8 @@
     <PackageProjectUrl>http://github.com/Bluegrams/PdfiumViewer</PackageProjectUrl>
     <PackageTags>pdf viewer pdfium</PackageTags>
     <DocumentationFile>bin\$(Configuration)\PdfiumViewer.xml</DocumentationFile>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>Key.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup Condition=" '$(TargetFramework)' == 'net20' Or '$(TargetFramework)' == 'net45'">
     <Reference Include="System.Windows.Forms" />
