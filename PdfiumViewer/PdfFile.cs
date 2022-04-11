@@ -36,7 +36,10 @@ namespace PdfiumViewer
 
             var document = NativeMethods.FPDF_LoadCustomDocument(stream, password, _id);
             if (document == IntPtr.Zero)
+            {
+                Dispose();
                 throw new PdfException((PdfError)NativeMethods.FPDF_GetLastError());
+            }
 
             LoadDocument(document);
         }
