@@ -9,7 +9,7 @@ This is an updated fork of the archived **[pvginkel/PdfiumViewer](https://github
 
 - Merged all relevant [open pull requests](https://github.com/pvginkel/PdfiumViewer/pulls) of the original repo
 - Updated to newer PDFium binaries from https://github.com/bblanchon/pdfium-binaries
-- Added **.NET Core 3.1** and **.NET 5** as new targets
+- Added **.NET Core 3.1** and **.NET 6** as new targets
 
 ## Introduction
 
