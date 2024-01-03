@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFrameworks>net45;netcoreapp3.1;net6.0-windows</TargetFrameworks>
+    <TargetFrameworks>net48;net6.0-windows</TargetFrameworks>
     <AssemblyTitle>PdfiumViewer.WPFDemo</AssemblyTitle>
     <Product>PdfiumViewer.WPFDemo</Product>
     <UseWPF>true</UseWPF>
@@ -38,7 +38,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
-  <ItemGroup Condition="'$(TargetFramework)' == 'net45'">
+  <ItemGroup Condition="'$(TargetFramework)' == 'net48'">
     <Reference Include="System.Windows.Forms" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -48,10 +48,11 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="PDFium.x64" Version="4648.0.0" />
-    <PackageReference Include="PDFium.x86" Version="4648.0.0" />
+    <ProjectReference Include="..\PdfiumViewer\PdfiumViewer.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PdfiumViewer\PdfiumViewer.csproj" />
+    <PackageReference Include="bblanchon.PDFium.Win32">
+      <Version>122.0.6219</Version>
+    </PackageReference>
   </ItemGroup>
 </Project>
