@@ -214,13 +214,12 @@ namespace PdfiumViewer
             left += (width - scaledWidth) / 2;
             top += (height - scaledHeight) / 2;
 
-            Image image = _document.Render(page,
+            using Image image = _document.Render(page,
                 AdjustDpi(e.Graphics.DpiX, scaledWidth),
                 AdjustDpi(e.Graphics.DpiY, scaledHeight),
                 e.Graphics.DpiX,
                 e.Graphics.DpiY,
                 PdfRotation.Rotate0, PdfRenderFlags.ForPrinting | PdfRenderFlags.Annotations);
-
             e.Graphics.DrawImageUnscaled(image, e.PageBounds.Location);
         }
 
