@@ -12,12 +12,15 @@ namespace PdfiumViewer.Demo
     public partial class MainForm : Form
     {
         private SearchForm _searchForm;
-
-        public MainForm()
+		/// <summary>
+		/// Change from Bluegrams' original code: added line 21 to set the form's start position to center screen.
+		/// </summary>
+		public MainForm()
         {
             InitializeComponent();
+			StartPosition = FormStartPosition.CenterScreen;
 
-            renderToBitmapsToolStripMenuItem.Enabled = false;
+			renderToBitmapsToolStripMenuItem.Enabled = false;
 
             pdfViewer1.Renderer.ContextMenuStrip = pdfViewerContextMenu;
 
@@ -69,22 +72,16 @@ namespace PdfiumViewer.Demo
             _page.Text = (pdfViewer1.Renderer.Page + 1).ToString();
         }
 
-        private void MainForm_Shown(object sender, EventArgs e)
+		//change to Bluegrams' original code:
+		//replaced line 78-89 with opening the test file "test.pdf" in the same directory as the executable.
+		//added line 82 to set the display mode of the initial test file to FitWidth.
+		private void MainForm_Shown(object sender, EventArgs e)
         {
-            var args = Environment.GetCommandLineArgs();
+			pdfViewer1.Document = OpenDocument("test.pdf");
 
-            if (args.Length > 1)
-            {
-                pdfViewer1.Document?.Dispose();
-                pdfViewer1.Document = OpenDocument(args[1]);
-                renderToBitmapsToolStripMenuItem.Enabled = true;
-            }
-            else
-            {
-                OpenFile();
-            }
+			FitPage(PdfViewerZoomMode.FitWidth);
 
-            _showBookmarks.Checked = pdfViewer1.ShowBookmarks;
+			_showBookmarks.Checked = pdfViewer1.ShowBookmarks;
             _showToolbar.Checked = pdfViewer1.ShowToolbar;
         }
 

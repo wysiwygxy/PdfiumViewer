@@ -58,37 +58,43 @@ namespace PdfiumViewer
             set { base.TabStop = value; }
         }
 
-        /// <summary>
-        /// Gets or sets the currently focused page.
-        /// </summary>
-        public int Page
+		/// <summary>
+		/// Gets or sets the currently focused page.
+		/// </summary>
+		/// change from Bluegrams' original code (66-90): replaced with line 66-94 to make sure the correct page number for the page 
+		/// with more unhidden area is returned 
+		public int Page
         {
-            get
-            {
-                if (Document == null || !_pageCacheValid)
-                    return 0;
+			get
+			{
+				if (Document == null || !_pageCacheValid)
+					return 0;
 
-                int top = -DisplayRectangle.Top;
-                int bottom = top + GetScrollClientArea().Height;
+				float top = -DisplayRectangle.Top;
+				float bottom = top + GetScrollClientArea().Height;
 
-                for (int page = 0; page < Document.PageSizes.Count; page++)
-                {
-                    var pageCache = _pageCache[page].OuterBounds;
-                    if (top - 10 < pageCache.Top)
-                    {
-                        // If more than 50% of the page is hidden, return the previous page.
+				for (int page = 0; page < Document.PageSizes.Count; page++)
+				{
+					var pageCache = _pageCache[page].OuterBounds;
+					if (top - 10 < pageCache.Top)
+					{
+						Rectangle prevPageCache;
+						float prevhidden;
+						float hidden = (pageCache.Bottom - bottom) / pageCache.Height;
+						if (page > 0)
+						{
+							prevPageCache = _pageCache[page - 1].OuterBounds;
+							prevhidden = (top - prevPageCache.Top) / prevPageCache.Height;
 
-                        int hidden = pageCache.Bottom - bottom;
-                        if (hidden > 0 && (double)hidden / pageCache.Height > 0.5 && page > 0)
-                            return page - 1;
-
-                        return page;
-                    }
-                }
-
-                return Document.PageCount - 1;
-            }
-            set
+							if (hidden > 0 && hidden > prevhidden)
+								return page - 1;
+						}
+						return page;
+					}
+				}
+				return Document.PageCount - 1;
+			}
+			set
             {
                 if (Document == null)
                 {

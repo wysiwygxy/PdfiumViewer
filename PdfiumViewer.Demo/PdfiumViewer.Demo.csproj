@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFrameworks>net48;net6.0-windows</TargetFrameworks>
+    <TargetFrameworks>net48;net6.0-windows;net8.0-windows</TargetFrameworks>
     <UseWindowsForms>true</UseWindowsForms>
     <AssemblyTitle>PdfViewer.Demo</AssemblyTitle>
     <Company>Pieter van Ginkel</Company>
@@ -73,5 +73,10 @@
     <PackageReference Include="bblanchon.PDFium.Win32">
       <Version>122.0.6219</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="test.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>
